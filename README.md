@@ -60,7 +60,7 @@ ordering.
 Basic usage:
 
 ``` bash
-python replace_itp_charges.py \
+python replace_itp_charges_v2.py \
   --mmff-mol2 "structure.mol2" \
   --chg "resp2.chg" \
   --itp-in "molecule.itp" \
@@ -137,7 +137,11 @@ prints diagnostic information including:
 The script assumes:
 
 -   atom counts are identical across files
--   atom names in the `.mol2` reference structure are **unique**
+-   atom names in the `.mol2` reference structure are **unique**. If atom 
+names are not unique, users should first renumber or regenerate atom names 
+before  running this script. This can be done using common cheminformatics 
+tools such  as Open Babel, RDKit, or ParmEd, which can automatically assign 
+unique atom identifiers while preserving the molecular structure.
 -   the `.chg` file follows the same atom ordering as the `.mol2`
     structure
 
